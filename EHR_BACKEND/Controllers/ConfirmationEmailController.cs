@@ -17,7 +17,7 @@ namespace EasyHouseRent.Controllers
         // GET: api/<ConfirmationEmailController>
         BaseData db = new BaseData();
         [HttpGet]
-        public bool Get([FromQuery] Usuarios user)
+        public bool Get([FromQuery] Users user)
         {
             string sql = $"SELECT email FROM usuarios where email = '{user.email}';";
             return user.ConfirmationEmail(sql);
