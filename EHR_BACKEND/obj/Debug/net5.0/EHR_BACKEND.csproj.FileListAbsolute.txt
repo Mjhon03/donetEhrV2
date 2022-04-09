@@ -44,3 +44,12 @@ C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\obj\D
 C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\obj\Debug\net5.0\EHR_BACKEND.pdb
 C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\obj\Debug\net5.0\EHR_BACKEND.genruntimeconfig.cache
 C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\obj\Debug\net5.0\ref\EHR_BACKEND.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\BouncyCastle.Crypto.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\Google.Protobuf.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\K4os.Compression.LZ4.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\K4os.Hash.xxHash.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\MySql.Data.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\Ubiety.Dns.Core.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\ZstdNet.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
