@@ -345,6 +345,37 @@
           "lib/net5.0/ZstdNet.dll": {}
         }
       },
+      "Nancy/1.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Nancy.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Nancy.dll": {}
+        }
+      },
+      "Nancy.Serialization.JsonNet/1.4.1": {
+        "type": "package",
+        "dependencies": {
+          "Nancy": "1.4.1",
+          "Newtonsoft.Json": "(, )"
+        },
+        "compile": {
+          "lib/net40/Nancy.Serialization.JsonNet.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Nancy.Serialization.JsonNet.dll": {}
+        }
+      },
+      "Newtonsoft.Json/3.5.8": {
+        "type": "package",
+        "compile": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        }
+      },
       "Swashbuckle.AspNetCore/5.6.3": {
         "type": "package",
         "dependencies": {
@@ -1211,6 +1242,51 @@
         "mysql.data.nuspec"
       ]
     },
+    "Nancy/1.4.1": {
+      "sha512": "HVdZaY2upy0V38hECjSex/QKHLLCg1rBrLXE+zm4+582urlH+yskLj9yi119dqtTRYrFHOJi8cJNM9UW0/QFRw==",
+      "type": "package",
+      "path": "nancy/1.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Nancy.dll",
+        "lib/net40/Nancy.xml",
+        "nancy.1.4.1.nupkg.sha512",
+        "nancy.nuspec"
+      ]
+    },
+    "Nancy.Serialization.JsonNet/1.4.1": {
+      "sha512": "iXQAygbHcExUemhXlV+hDLRn/rJ53kFhvkO+4hppnZ1iAbDVQf+v+/s3wiU47DI2s8GwBakeIDSNRLqQEN9OyA==",
+      "type": "package",
+      "path": "nancy.serialization.jsonnet/1.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/Nancy.Serialization.JsonNet.dll",
+        "nancy.serialization.jsonnet.1.4.1.nupkg.sha512",
+        "nancy.serialization.jsonnet.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/3.5.8": {
+      "sha512": "Xmri4q9s1NjuiBtOFkWMU9sUZdw5V7kFSf3CQQ3TlDyzWQHo94d5cHNxsSlnezGAZSPfdEG5k7bOrkzTe6rUOQ==",
+      "type": "package",
+      "path": "newtonsoft.json/3.5.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/20/Newtonsoft.Json.Net20.dll",
+        "lib/20/Newtonsoft.Json.Net20.pdb",
+        "lib/20/Newtonsoft.Json.Net20.xml",
+        "lib/35/Newtonsoft.Json.dll",
+        "lib/35/Newtonsoft.Json.pdb",
+        "lib/35/Newtonsoft.Json.xml",
+        "lib/SL/Newtonsoft.Json.Silverlight.dll",
+        "lib/SL/Newtonsoft.Json.Silverlight.pdb",
+        "lib/SL/Newtonsoft.Json.Silverlight.xml",
+        "newtonsoft.json.3.5.8.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/5.6.3": {
       "sha512": "UkL9GU0mfaA+7RwYjEaBFvAzL8qNQhNqAeV5uaWUu/Z+fVgvK9FHkGCpTXBqSQeIHuZaIElzxnLDdIqGzuCnVg==",
       "type": "package",
@@ -1872,6 +1948,7 @@
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.8",
       "Microsoft.Identity.Web >= 1.1.0",
       "MySql.Data >= 8.0.28",
+      "Nancy.Serialization.JsonNet >= 1.4.1",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -1930,6 +2007,10 @@
             "target": "Package",
             "version": "[8.0.28, )"
           },
+          "Nancy.Serialization.JsonNet": {
+            "target": "Package",
+            "version": "[1.4.1, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
@@ -1956,5 +2037,47 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Nancy.Serialization.JsonNet 1.4.1 does not provide an inclusive lower bound for dependency Newtonsoft.Json. An approximate best match of Newtonsoft.Json 3.5.8 was resolved.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Nancy 1.4.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Nancy",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Nancy.Serialization.JsonNet 1.4.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Nancy.Serialization.JsonNet",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json 3.5.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

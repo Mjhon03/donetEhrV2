@@ -53,3 +53,6 @@ C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\D
 C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\Ubiety.Dns.Core.dll
 C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\ZstdNet.dll
 C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\Nancy.dll
+C:\Users\mjhon\OneDrive\Escritorio\EHR BACKEND 5.0\EHR_BACKEND\EHR_BACKEND\bin\Debug\net5.0\Nancy.Serialization.JsonNet.dll

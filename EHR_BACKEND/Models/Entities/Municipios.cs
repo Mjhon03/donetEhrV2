@@ -23,34 +23,5 @@ namespace EasyHouseRent.Model.Entities
 
 
 
-        public IEnumerable<Municipios> GetAllMunicipality(string sql)
-        {
-            DataTable dt = db.getTable(sql);
-            List<Municipios> MunicipioList = new List<Municipios>();
-            MunicipioList = (from DataRow dr in dt.Rows
-                             select new Municipios()
-                             {
-                                 idmunicipio = Convert.ToInt32(dr["idmunicipio"]),
-                                 nombre = dr["nombre"].ToString(),
-                                 departamento = Convert.ToInt32(dr["departamento"]),
-                             }).ToList();
-
-            return MunicipioList;
-        }
-
-        public IEnumerable<Municipios> GetMunicipalityById(string sql)
-        {
-            DataTable dt = db.getTable(sql);
-            List<Municipios> MunicipioList = new List<Municipios>();
-            MunicipioList = (from DataRow dr in dt.Rows
-                             select new Municipios()
-                             {
-                                 idmunicipio = Convert.ToInt32(dr["idmunicipio"]),
-                                 nombre = dr["nombre"].ToString(),
-                                 departamento = Convert.ToInt32(dr["departamento"]),
-                             }).ToList();
-            return MunicipioList;
-        }
-
     }
 }

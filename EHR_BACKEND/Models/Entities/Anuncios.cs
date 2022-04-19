@@ -32,53 +32,5 @@ namespace EasyHouseRent.Model.Entities
         private string _certificado = "";
         public string certificado { get { return _certificado; } set { _certificado = value; } }
 
-        public IEnumerable<Anuncios> GetAllAdvertisment(string sql)
-        {
-            DataTable dt = db.getTable(sql);
-            List<Anuncios> usersList = new List<Anuncios>();
-            usersList = (from DataRow dr in dt.Rows
-                         select new Anuncios()
-                         {
-                             idanuncio = Convert.ToInt32(dr["idanuncio"]),
-                             idusuario = Convert.ToInt32(dr["idusuario"]),
-                             titulo = dr["titulo"].ToString(),
-                             descripcion = dr["descripcion"].ToString(),
-                             puntuacion = Convert.ToInt32(dr["puntuacion"]),
-                             direccion = dr["direccion"].ToString(),
-                             estado = dr["estado"].ToString(),
-                             tipoEstructura = Convert.ToInt32(dr["tipoEstructura"]),
-                             valor = Convert.ToInt32(dr["valor"]),
-                             fecha = dr["fecha"].ToString(),
-                             certificado = dr["certificado"].ToString()
-
-                         }).ToList();
-
-            return usersList;
-
-        }
-        public IEnumerable<Anuncios> GetAdByID(string sql)
-        {
-            DataTable dt = db.getTable(sql);
-            List<Anuncios> usersList = new List<Anuncios>();
-            usersList = (from DataRow dr in dt.Rows
-                         select new Anuncios()
-                         {
-                             idanuncio = Convert.ToInt32(dr["idanuncio"]),
-                             idusuario = Convert.ToInt32(dr["idusuario"]),
-                             titulo = dr["titulo"].ToString(),
-                             descripcion = dr["descripcion"].ToString(),
-                             puntuacion = Convert.ToInt32(dr["puntuacion"]),
-                             direccion = dr["direccion"].ToString(),
-                             estado = dr["estado"].ToString(),
-                             tipoEstructura = Convert.ToInt32(dr["tipoEstructura"]),
-                             valor = Convert.ToInt32(dr["valor"]),
-                             fecha = dr["fecha"].ToString(),
-                             certificado = dr["certificado"].ToString()
-
-                         }).ToList();
-
-            return usersList;
-
-        }
     }
 }

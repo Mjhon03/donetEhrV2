@@ -37,6 +37,16 @@ namespace EHR_BACKEND
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EHR_BACKEND", Version = "v1" });
             });
+
+            //Enable CORS
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
+
+            services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

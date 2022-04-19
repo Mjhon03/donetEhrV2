@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Nancy.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,8 +44,6 @@ namespace EasyHouseRent.Model
             return result;
         }
 
-
-
         public DataTable getTable(string sql)
         {
             DataTable dt = new DataTable();
@@ -64,6 +63,34 @@ namespace EasyHouseRent.Model
                 dt = null;
             }
             return dt;
+        }
+
+
+        public string ConvertDataTabletoString(string sql)
+        {
+            DataTable dt = new DataTable();
+            using (connection)
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, connection))
+                {
+                    connection.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                    JavaScriptSerializer serializer = new JavaScriptSerializer();
+                    List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+                    Dictionary<string, object> row;
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        row = new Dictionary<string, object>();
+                        foreach (DataColumn col in dt.Columns)
+                        {
+                            row.Add(col.ColumnName, dr[col]);
+                        }
+                        rows.Add(row);
+                    }
+                    return serializer.Serialize(rows);
+                }
+            }
         }
     }
 }
