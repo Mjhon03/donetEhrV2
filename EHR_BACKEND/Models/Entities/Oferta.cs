@@ -7,8 +7,13 @@ namespace EasyHouseRent.Model.Entities
 {
     public class Oferta
     {
-        public int idoferta { set; get; }
-        public int idanuncio { set; get; }
-        public int idusuario { set; get; }
+        private int _idoferta;
+        public int idoferta { set { _idoferta = value; } get { return _idoferta; } }
+
+        private int _idanuncio;
+        public int idanuncio { set { _idanuncio = value; } get { return _idanuncio; } }
+        
+        private int _idusuario;
+        public int idusuario { set { _idusuario = value; } get { return _idusuario; } }
     }
 }
