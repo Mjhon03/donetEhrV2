@@ -1958,11 +1958,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adsi\\Desktop\\EHR BACKEND\\donetEhrV2\\EHR_BACKEND\\EHR_BACKEND.csproj",
+      "projectUniqueName": "C:\\Users\\adsi\\Desktop\\EHR 5.0\\donetEhrV2\\EHR_BACKEND\\EHR_BACKEND.csproj",
       "projectName": "EHR_BACKEND",
-      "projectPath": "C:\\Users\\adsi\\Desktop\\EHR BACKEND\\donetEhrV2\\EHR_BACKEND\\EHR_BACKEND.csproj",
+      "projectPath": "C:\\Users\\adsi\\Desktop\\EHR 5.0\\donetEhrV2\\EHR_BACKEND\\EHR_BACKEND.csproj",
       "packagesPath": "C:\\Users\\adsi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adsi\\Desktop\\EHR BACKEND\\donetEhrV2\\EHR_BACKEND\\obj\\",
+      "outputPath": "C:\\Users\\adsi\\Desktop\\EHR 5.0\\donetEhrV2\\EHR_BACKEND\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\adsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2026,6 +2026,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.16, 5.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -2034,7 +2040,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   },

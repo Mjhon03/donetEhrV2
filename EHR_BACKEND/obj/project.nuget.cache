@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FVoOoBMKa5P7P1zbkTN8NFgfMOUby2GrBxb7l603fhb+hAy1RaIR1PJM5oniwGdI6RaIopJ0gE1VkQ8Ku9vFEQ==",
+  "dgSpecHash": "YWU83btPEQcTOAMHuLVglkImYyP8mzNGNGl693TGAbIVJBN5I3i4HH/R+YrCyT+QnTFColXNY6pMaRssUXA6Yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adsi\\Desktop\\EHR BACKEND\\donetEhrV2\\EHR_BACKEND\\EHR_BACKEND.csproj",
+  "projectFilePath": "C:\\Users\\adsi\\Desktop\\EHR 5.0\\donetEhrV2\\EHR_BACKEND\\EHR_BACKEND.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adsi\\.nuget\\packages\\azure.core\\1.4.1\\azure.core.1.4.1.nupkg.sha512",
     "C:\\Users\\adsi\\.nuget\\packages\\azure.identity\\1.2.3\\azure.identity.1.2.3.nupkg.sha512",
@@ -53,7 +53,8 @@
     "C:\\Users\\adsi\\.nuget\\packages\\system.text.encoding.codepages\\4.4.0\\system.text.encoding.codepages.4.4.0.nupkg.sha512",
     "C:\\Users\\adsi\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512",
     "C:\\Users\\adsi\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512",
-    "C:\\Users\\adsi\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\adsi\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\adsi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
   ],
   "logs": [
     {

@@ -37,14 +37,7 @@ namespace EHR_BACKEND
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EHR_BACKEND", Version = "v1" });
             });
-
-            //Enable CORS
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            });
-
-
+            services.AddCors();
             services.AddControllers();
 
         }
@@ -62,6 +55,12 @@ namespace EHR_BACKEND
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials());
 
             app.UseAuthentication();
             app.UseAuthorization();
