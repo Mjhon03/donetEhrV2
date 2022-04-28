@@ -20,7 +20,7 @@ namespace EasyHouseRent.Controllers
         [HttpGet]
         public string Get([FromQuery]Usuarios user)
         {
-                string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{user.email}' and contraseña = '{user.contraseña}'";
+                string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{user.email}' and contraseña = '{Encrypt.GetSHA256(user.contraseña)}'";
                 return db.ConvertDataTabletoString(sql);
         }
 

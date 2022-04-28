@@ -16,7 +16,7 @@ namespace EasyHouseRent.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "Easy House Rent API"};
+            return new string[] { "Easy House Rent API" };
         }
 
         // GET api/<HomeController>/5
@@ -42,6 +42,12 @@ namespace EasyHouseRent.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+
+        [HttpPost("/busquedaFiltro{id}")]
+        public async Task filtrosPost([FromBody] string value)
+        {
+
         }
     }
 }

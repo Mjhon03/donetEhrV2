@@ -27,7 +27,6 @@ namespace EasyHouseRent.Controllers
 
         // GET api/<MunicipalityController>/nombreDepartamento
         [HttpGet("{iddepartamento}")]
-        [Route("api/Municipality/{iddepartamento}")]
         public string Get([FromQuery]int iddepartamento)
         {
             string sql = $"select m.* FROM municipios m INNER JOIN departamento d on m.departamento=d.iddepartamento where d.iddepartamento = {iddepartamento}";
