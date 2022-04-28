@@ -30,7 +30,7 @@ namespace EasyHouseRent.Model.Entities
 
         private string _contraseña = "";
 
-        public string contraseña { set { _contraseña = Encrypt.GetSHA256(value); } get { return _contraseña; } }
+        public string contraseña { set { _contraseña = value; } get { return _contraseña; } }
 
         private string _apellidos = "";
         public string apellidos { set { _apellidos = value; } get { return _apellidos; } }
