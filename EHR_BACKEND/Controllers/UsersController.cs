@@ -18,18 +18,14 @@ namespace EasyHouseRent.Controllers
         // GET: api/<UsersController>
         BaseData db = new BaseData(); 
         [HttpGet]
-        public string Get([FromQuery]Usuarios user)
+        public void Get([FromQuery]Usuarios user)
         {
-                string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{user.email}' and contraseña = '{Encrypt.GetSHA256(user.contraseña)}'";
-                return db.ConvertDataTabletoString(sql);
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{email}/{password}")]
         public void Get()
         {
-        
-
         }
 
         // POST api/<UsersController>
