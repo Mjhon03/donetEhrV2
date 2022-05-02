@@ -1,6 +1,9 @@
-﻿using EasyHouseRent.Model;
+﻿using EasyHouseRent.Helpers;
+using EasyHouseRent.Model;
 using EasyHouseRent.Model.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +19,12 @@ namespace EasyHouseRent.Controllers
     public class PasswordController : ControllerBase
     {
         BaseData db = new BaseData();
+        private readonly IConfiguration conf;
+        public PasswordController(IConfiguration config)
+        {
+            conf = config;
+        }
+
         // GET: api/<PasswordController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -32,15 +41,29 @@ namespace EasyHouseRent.Controllers
 
         // POST api/<PasswordController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<object> Post([FromQuery] Usuarios user)
         {
+            string sql = $"SELECT email FROM usuarios WHERE email = '{user.email}';";
+            string secret = this.conf.GetValue<string>("Secret");
+            var jwt = new JWT(secret);
+            var token = jwt.CreateTokenEmail(db.executeSql(sql));
+            //return Ok(new { state = true, token });
+            return Ok(token);
+        }
+
+        [HttpPost("{token}/{password}")]
+        public string PostPassword([FromQuery] Usuarios user)
+        {
+            string sql = $"UPDATE usuarios SET contraseña = {user.contraseña} WHERE email = '{user.email}'";
+            return db.executeSql(sql);
         }
 
         // PUT api/<PasswordController>/5
         [HttpPut]
+        [Authorize]
         public string Put([FromQuery] Usuarios user)
         {
-            string sql = "UPDATE usuarios SET contraseña = '" + user.contraseña + "'  WHERE idusuario = '" + user.email + "'";
+            string sql = $"UPDATE usuarios SET contraseña = {user.contraseña} WHERE email = '{user.email}'";
             return db.executeSql(sql);
         }
 

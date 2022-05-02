@@ -39,19 +39,7 @@ namespace EHR_BACKEND.Controllers
             else
             {
 
-                claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, "1"));
-                var tokenDescriptor = new SecurityTokenDescriptor
-                {
-                    Subject = claims,
-                    Expires = DateTime.UtcNow.AddDays(1),
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                };
-
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var createdToken = tokenHandler.CreateToken(tokenDescriptor);
-                var token = tokenHandler.WriteToken(createdToken);
-
-                return Ok(new { isAuth = true, data = result, token = token });
+                return Ok(new { isAuth = true, data = result });
 
             }
 
