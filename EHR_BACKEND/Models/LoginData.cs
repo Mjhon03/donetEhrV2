@@ -8,9 +8,9 @@ namespace EHR_BACKEND.Models
         private string _token;
         public string Token { get { return _token; } set { _token = value; } }  
         private string _password;
-        public string Password { get { return _password; } set { _password = value; } } 
+        public string password { get { return _password; } set { _password = value; } } 
         private string _email;
-        public string Email { get { return _email; } set { _email = value; } }
+        public string email { get { return _email; } set { _email = value; } }
 
         private bool ValidatePassword(string password, out string ErrorMessage)
         {
