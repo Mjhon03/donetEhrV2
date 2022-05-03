@@ -21,7 +21,7 @@ namespace EasyHouseRent.Controllers
 
         // GET: api/<DepartmentController>
         [HttpGet]
-        public string Get()
+        public List<object> Get()
         {
             string sql = "SELECT * FROM departamento WHERE nombre != 'desconocido'";
             return db.ConvertDataTabletoString(sql);

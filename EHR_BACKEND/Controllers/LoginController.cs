@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,6 +22,9 @@ namespace EHR_BACKEND.Controllers
         private readonly IConfiguration _configuration;
         public object AdapterTable { get; private set; }
 
+
+
+
         public LoginController(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -29,17 +33,34 @@ namespace EHR_BACKEND.Controllers
         [HttpPost]
         public ActionResult Post([FromQuery] LoginData loginData)
         {
+            var secretKey = _configuration.GetValue<string>("Secrect");
+            var key = Encoding.ASCII.GetBytes(secretKey);
+            var claims = new ClaimsIdentity();
+
             string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{loginData.email}' and contraseña = '{Encrypt.GetSHA256(loginData.password)}'";
-            string result = _db.ConvertDataTabletoString(sql);
-            if (result == "[]")
+            List<object> result = _db.ConvertDataTabletoString(sql);
+            if (result.Count<0)
             {
 
                 return BadRequest(new { isAuth = false });
             }
             else
             {
+                claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, "1"));
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = claims,
+                    Expires = DateTime.UtcNow.AddDays(1),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
 
-                return Ok(new { isAuth = true, data = result });
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var createdToken = tokenHandler.CreateToken(tokenDescriptor);
+                var token = tokenHandler.WriteToken(createdToken);
+
+                result.Add( new { token = token });
+
+                return Ok(result);
 
             }
 

@@ -19,7 +19,7 @@ namespace EasyHouseRent.Controllers
         Municipios municipios = new Municipios(); 
         // GET: api/<MunicipalityController>
         [HttpGet]
-        public string Get()
+        public List<object> Get()
         {
             string sql = "SELECT * FROM municipios WHERE nombre != 'desconocido'";
             return db.ConvertDataTabletoString(sql);
@@ -27,7 +27,7 @@ namespace EasyHouseRent.Controllers
 
         // GET api/<MunicipalityController>/nombreDepartamento
         [HttpGet("{iddepartamento}")]
-        public string Get([FromQuery]int iddepartamento)
+        public List<object> Get([FromQuery]int iddepartamento)
         {
             string sql = $"select m.* FROM municipios m INNER JOIN departamento d on m.departamento=d.iddepartamento where d.iddepartamento = {iddepartamento}";
             return db.ConvertDataTabletoString(sql);

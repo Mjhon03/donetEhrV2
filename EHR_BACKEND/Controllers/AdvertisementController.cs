@@ -20,7 +20,7 @@ namespace EasyHouseRent.Controllers
         Anuncios anuncios = new Anuncios(); 
         // GET: api/<AdController>
         [HttpGet]
-        public string Get([FromQuery] Anuncios Ad)
+        public List<object> Get([FromQuery] Anuncios Ad)
         {
             string sql = $"SELECT * FROM anuncios";
             return db.ConvertDataTabletoString(sql);
@@ -29,7 +29,7 @@ namespace EasyHouseRent.Controllers
 
         // GET api/<AdController>/5
         [HttpGet("{id}")]
-        public string GetAd(int id, [FromQuery] Anuncios Ad)
+        public List<object> GetAd(int id, [FromQuery] Anuncios Ad)
         {
             string sql = $"SELECT * FROM anuncios where idusuario = '{id}'";
             return db.ConvertDataTabletoString(sql);

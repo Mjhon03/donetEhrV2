@@ -66,7 +66,7 @@ namespace EasyHouseRent.Model
         }
 
 
-        public string ConvertDataTabletoString(string sql)
+        public List<object> ConvertDataTabletoString(string sql)
         {
             DataTable dt = new DataTable();
             using (connection)
@@ -77,7 +77,7 @@ namespace EasyHouseRent.Model
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     adapter.Fill(dt);
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+                    List<object> rows = new List<object>();
                     Dictionary<string, object> row;
                     foreach (DataRow dr in dt.Rows)
                     {
@@ -88,7 +88,7 @@ namespace EasyHouseRent.Model
                         }
                         rows.Add(row);
                     }
-                    return serializer.Serialize(rows);
+                    return rows;
                 }
             }
         }

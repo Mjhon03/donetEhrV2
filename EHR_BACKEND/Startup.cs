@@ -44,7 +44,7 @@ namespace EHR_BACKEND
             services.AddCors();
 
             //Configure Validation Token
-            var secretKey = this.Configuration.GetValue<string>("Secret");
+            var secretKey = this.Configuration.GetValue<string>("Secrect");
             services.AddAuthentication(auth =>
             {
                 auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
