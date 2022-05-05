@@ -31,15 +31,16 @@ namespace EHR_BACKEND.Controllers
         }
         // POST api/<LoginController>
         [HttpPost]
-        public ActionResult Post([FromQuery] LoginData loginData)
+        public ActionResult Post([FromBody] LoginData loginData)
         {
             var secretKey = _configuration.GetValue<string>("Secrect");
             var key = Encoding.ASCII.GetBytes(secretKey);
             var claims = new ClaimsIdentity();
 
-            string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{loginData.email}' and contraseña = '{Encrypt.GetSHA256(loginData.password)}'";
+            string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{loginData.email}' and contraseña = '{loginData.password}'";
             List<object> result = _db.ConvertDataTabletoString(sql);
-            if (result.Count<0)
+
+            if (result.Count == 0)
             {
 
                 return BadRequest(new { isAuth = false });

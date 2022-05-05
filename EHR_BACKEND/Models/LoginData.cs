@@ -1,16 +1,16 @@
-﻿using System;
+﻿using EasyHouseRent;
+using System;
 using System.Text.RegularExpressions;
 
 namespace EHR_BACKEND.Models
 {
     public class LoginData
     {
-        private string _token;
-        public string Token { get { return _token; } set { _token = value; } }  
-        private string _password;
-        public string password { get { return _password; } set { _password = value; } } 
         private string _email;
         public string email { get { return _email; } set { _email = value; } }
+        private string _password;
+        public string password { get { return _password; } set { _password = Encrypt.GetSHA256(value); } } 
+
 
         private bool ValidatePassword(string password, out string ErrorMessage)
         {
