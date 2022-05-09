@@ -37,7 +37,7 @@ namespace EHR_BACKEND.Controllers
             var key = Encoding.ASCII.GetBytes(secretKey);
             var claims = new ClaimsIdentity();
 
-            string sql = $"SELECT nombre, apellidos, edad, email,telefono FROM usuarios where email = '{loginData.email}' and contraseña = '{loginData.password}'";
+            string sql = $"SELECT idusuario, nombre, apellidos, edad, email,telefono, foto FROM usuarios where email = '{loginData.email}' and contraseña = '{loginData.password}'";
             List<object> result = _db.ConvertDataTabletoString(sql);
 
             if (result.Count == 0)
