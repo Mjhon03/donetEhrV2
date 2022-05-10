@@ -44,7 +44,7 @@ namespace EasyHouseRent.Controllers
         public ActionResult<object> Post([FromQuery] Usuarios user)
         {
             string sql = $"SELECT email FROM usuarios WHERE email = '{user.email}';";
-            string secret = this.conf.GetValue<string>("Secret");
+            string secret = this.conf.GetValue<string>("Secrect");
             var jwt = new JWT(secret);
             var token = jwt.CreateTokenEmail(db.executeSql(sql));
             //return Ok(new { state = true, token });

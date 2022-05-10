@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EasyHouseRent.Model;
+using EasyHouseRent.Model.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +15,7 @@ namespace EasyHouseRent.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        BaseData db = new BaseData();
         // GET: api/<HomeController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -28,8 +32,31 @@ namespace EasyHouseRent.Controllers
 
         // POST api/<HomeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Anuncios> PostAd([FromQuery] Anuncios ad)
         {
+            string sql = $"SELECT idanuncio,idusuario,titulo,descripcion,direccion,estado,valor,fecha,zona,url1,url2,url3,url4 FROM anuncios a WHERE zona LIKE '%{ad.zona}%';";
+            DataTable dt = db.getTable(sql);
+            List<Anuncios> dataAd = new List<Anuncios>();
+            dataAd = (from DataRow dr in dt.Rows
+                         select new Anuncios()
+                         {
+                             idanuncio = Convert.ToInt32(dr["idanuncio"]),
+                             idusuario = Convert.ToInt32(dr["idusuario"]),
+                             titulo = dr["titulo"].ToString(),
+                             descripcion = dr["descripcion"].ToString(),
+                             direccion = dr["direccion"].ToString(),
+                             estado = dr["estado"].ToString(),
+                             valor = Convert.ToInt32(dr["valor"]),
+                             fecha = dr["fecha"].ToString(),
+                             zona = dr["zona"].ToString(),
+                             url1 = dr["url1"].ToString(),
+                             url2 = dr["url2"].ToString(),
+                             url3 = dr["url3"].ToString(),
+                             url4 = dr["url4"].ToString()
+
+                         }).ToList();
+
+            return dataAd;
         }
 
         // PUT api/<HomeController>/5
