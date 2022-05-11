@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -34,5 +35,13 @@ namespace EasyHouseRent.Helpers
 
             return returnToken.WriteToken(createdToken);
         }
+
+        public JwtSecurityToken descodeToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var decodeValue = handler.ReadJwtToken(token);
+            return decodeValue;
+        }
+
     }
 }
