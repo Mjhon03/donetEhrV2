@@ -1,6 +1,7 @@
 ﻿using EasyHouseRent.Helpers;
 using EasyHouseRent.Model;
 using EasyHouseRent.Model.Entities;
+using EHR_BACKEND.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -52,13 +53,6 @@ namespace EasyHouseRent.Controllers
             return Ok(new { state = true, token = token});
         }
 
-        [HttpPost("{token}/{password}")]
-        public string PostPassword([FromQuery] Usuarios user)
-        {
-            string sql = $"UPDATE usuarios SET contraseña = {user.contraseña} WHERE email = '{user.email}'";
-            return db.executeSql(sql);
-        }
-
         [HttpPost("/descodeToken")]
         public JwtSecurityToken descodeToken([FromQuery] string token)
         {
@@ -72,9 +66,10 @@ namespace EasyHouseRent.Controllers
         // PUT api/<PasswordController>/5
         [HttpPut]
         [Authorize]
-        public string Put([FromQuery] Usuarios user)
+        public string Put([FromBody] LoginData user)
         {
-            string sql = $"update usuarios set contraseña = '"+user.contraseña+"' where email = '"+user.email+"';";
+            string sql = $"update usuarios set contraseña = '{user.password}' where email = '{user.email}';";
+            
             return db.executeSql(sql);
         }
 
