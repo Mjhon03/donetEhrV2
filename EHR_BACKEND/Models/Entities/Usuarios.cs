@@ -47,6 +47,9 @@ namespace EasyHouseRent.Model.Entities
         private int _municipio = 0;
         public int municipio { set { _municipio = value; } get { return _municipio; } }
 
+        private string _foto;
+        public string foto { set { _foto = value; } get { return _foto; } }
+
 
         public bool ConfirmationEmail(string sql)
         {

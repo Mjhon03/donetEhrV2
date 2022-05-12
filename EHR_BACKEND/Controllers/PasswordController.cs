@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -44,11 +45,11 @@ namespace EasyHouseRent.Controllers
         public ActionResult<object> Post([FromQuery] Usuarios user)
         {
             string sql = $"SELECT email FROM usuarios WHERE email = '{user.email}';";
-            string secret = this.conf.GetValue<string>("Secret");
+            string secret = this.conf.GetValue<string>("Secrect");
             var jwt = new JWT(secret);
             var token = jwt.CreateTokenEmail(db.executeSql(sql));
             //return Ok(new { state = true, token });
-            return Ok(token);
+            return Ok(new { state = true, token = token});
         }
 
         [HttpPost("{token}/{password}")]
@@ -58,12 +59,22 @@ namespace EasyHouseRent.Controllers
             return db.executeSql(sql);
         }
 
+        [HttpPost("/descodeToken")]
+        public JwtSecurityToken descodeToken([FromQuery] string token)
+        {
+            string secret = this.conf.GetValue<string>("Secrect");
+            var jwt = new JWT(secret);
+            var decode = jwt.descodeToken(token);
+            return decode;
+        }
+
+
         // PUT api/<PasswordController>/5
         [HttpPut]
         [Authorize]
         public string Put([FromQuery] Usuarios user)
         {
-            string sql = $"UPDATE usuarios SET contraseña = {user.contraseña} WHERE email = '{user.email}'";
+            string sql = $"update usuarios set contraseña = '"+user.contraseña+"' where email = '"+user.email+"';";
             return db.executeSql(sql);
         }
 
