@@ -15,7 +15,7 @@ namespace EasyHouseRent.Model
 
         public BaseData()
         {
-            connection = new MySqlConnection("datasource = be9x9hl4jxninrg9fjld-mysql.services.clever-cloud.com; port = 3306; username = uxghxtan5jwr5hgm; password = x7zr78Y542CJ6jvf7mpQ; database = be9x9hl4jxninrg9fjld ; SSLMode = none");
+            connection = new MySqlConnection("datasource = dbehr.ci9ckwkufffp.us-east-1.rds.amazonaws.com; port = 3306; username = easyhouserent; password = easyhouserent; database = ehr ; SSLMode = none");
         }
         public string executeSql(string sql)
         {
