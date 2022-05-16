@@ -29,9 +29,9 @@ namespace EasyHouseRent.Controllers
 
         // GET api/<AdController>/5
         [HttpGet("{id}")]
-        public List<object> GetAd(int id, [FromQuery] Anuncios Ad)
+        public List<object> GetAd(int id)
         {
-            string sql = $"SELECT * FROM anuncios where idusuario = '{id}'";
+            string sql = $"SELECT * FROM anuncios where idanuncio = '{id}'";
             return db.ConvertDataTabletoString(sql);
         }
 
