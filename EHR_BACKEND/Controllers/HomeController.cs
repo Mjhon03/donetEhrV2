@@ -81,6 +81,35 @@ namespace EasyHouseRent.Controllers
             return mostRecentList;
         }
 
+        [HttpGet("Categories")]
+        public IEnumerable<Anuncios> GetCategories([FromQuery] string category)
+        {
+            string sql = $"SELECT a.* FROM anuncios a INNER JOIN estructura e ON a.tipoEstructura = e.idestructura WHERE e.nombre = '{category}';";
+            DataTable dt = db.getTable(sql);
+            List<Anuncios> categoryList = new List<Anuncios>();
+            categoryList = (from DataRow dr in dt.Rows
+                              select new Anuncios()
+                              {
+                                  idanuncio = Convert.ToInt32(dr["idanuncio"]),
+                                  idusuario = Convert.ToInt32(dr["idusuario"]),
+                                  titulo = dr["titulo"].ToString(),
+                                  descripcion = dr["descripcion"].ToString(),
+                                  direccion = dr["direccion"].ToString(),
+                                  estado = dr["estado"].ToString(),
+                                  valor = Convert.ToInt32(dr["valor"]),
+                                  fecha = dr["fecha"].ToString(),
+                                  zona = dr["zona"].ToString(),
+                                  url1 = dr["url1"].ToString(),
+                                  url2 = dr["url2"].ToString(),
+                                  url3 = dr["url3"].ToString(),
+                                  url4 = dr["url4"].ToString()
+
+                              }).ToList();
+
+            return categoryList;
+        }
+
+
         // POST api/<HomeController>
         [HttpPost]
         public void Post([FromQuery] string value)
