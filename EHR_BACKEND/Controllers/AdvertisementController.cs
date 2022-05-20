@@ -39,7 +39,7 @@ namespace EasyHouseRent.Controllers
         [HttpPost]
         public string Post([FromBody] Anuncios Ad)
         {
-            string sql = "INSERT INTO anuncios (idusuario,titulo,descripcion,puntuacion,direccion,estado,tipoEstructura,valor,fecha,certificado) VALUES ('" + Ad.idusuario + "','" + Ad.titulo + "','" + Ad.descripcion + "','" + Ad.puntuacion + "','" + Ad.direccion + "','" + Ad.estado + "','" + Ad.tipoEstructura + "','" + Ad.valor + "','" + Ad.fecha + "','" + Ad.certificado + "');";
+            string sql = "INSERT INTO anuncios (idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4) VALUES ('" + Ad.idusuario + "','" + Ad.titulo + "','" + Ad.direccion + "','" + Ad.descripcion + "','" + Ad.modalidad + "','" + Ad.zona + "','" + Ad.edificacion + "','" + Ad.habitaciones + "','" + Ad.garaje + "','" + Ad.precio + "','" + Ad.fecha + "','" + Ad.url1 + "','" + Ad.url2 + "','" + Ad.url3 + "','" + Ad.url4 + "');";
             return db.executeSql(sql);
         }
 
@@ -47,7 +47,7 @@ namespace EasyHouseRent.Controllers
         [HttpPut("{id}")]
         public string Put([FromBody] Anuncios ad)
         {
-            string sql = "UPDATE anuncios SET titulo = '" + ad.titulo + "', descripcion = '" + ad.descripcion + "', puntuacion = '" + ad.puntuacion + "', direccion ='" + ad.direccion + "', estado ='" + ad.estado + "', tipoEstructura ='" + ad.tipoEstructura + "', valor ='" + ad.valor + "', fecha ='" + ad.fecha + "', certificado ='" + ad.certificado + "'  WHERE idanuncio = '" + ad.idanuncio + "'";
+            string sql = "UPDATE anuncios SET titulo = '" + ad.titulo + "', descripcion = '" + ad.descripcion + "', puntuacion = '" + ad.puntuacion + "', direccion ='" + ad.direccion + "', estado ='" + ad.estado + "', tipoEstructura ='" + ad.tipoEstructura + "', valor ='" + ad.precio + "', fecha ='" + ad.fecha + "', certificado ='" + ad.certificado + "'  WHERE idanuncio = '" + ad.idanuncio + "'";
             return db.executeSql(sql);
         }
 

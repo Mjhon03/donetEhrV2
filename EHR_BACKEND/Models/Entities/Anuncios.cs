@@ -25,8 +25,8 @@ namespace EasyHouseRent.Model.Entities
         public string estado { get { return _estado; } set { _estado = value; } }
         private int _tipoEstructura = 0;
         public int tipoEstructura { get { return _tipoEstructura; } set { _tipoEstructura = value; } }
-        private float _valor = 0;
-        public float valor { get { return _valor; } set { _valor = value; } }
+        private float _precio = 0;
+        public float precio { get { return _precio; } set { _precio = value; } }
         private string _fecha = "";
         public string fecha { get { return _fecha; } set { _fecha = value; } }
         private string _certificado = "";
@@ -44,5 +44,18 @@ namespace EasyHouseRent.Model.Entities
 
         private string _url4 = "";
         public string url4 { get { return _url4; } set { _url4 = value; } }
+
+
+        private string _modalidad = "";
+        public string modalidad { get { return _modalidad; } set { _modalidad = value; } }
+
+        private string _edificacion = "";
+        public string edificacion { get { return _edificacion; } set { _edificacion = value; } }
+
+        private int _habitaciones = 0;
+        public int habitaciones { get { return _habitaciones; } set { _habitaciones = value; } }
+
+        private string _garaje = "";
+        public string garaje { get { return _garaje; } set { _garaje = value; } }
     }
 }
