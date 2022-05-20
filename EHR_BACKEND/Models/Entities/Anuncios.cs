@@ -35,26 +35,18 @@ namespace EasyHouseRent.Model.Entities
         public string zona { get { return _zona; } set { _zona = value; } }
         private string _url1 = "";
         public string url1 { get { return _url1; } set { _url1 = value; } }
-
         private string _url2 = "";
         public string url2 { get { return _url2; } set { _url2 = value; } }
-
         private string _url3 = "";
         public string url3 { get { return _url3; } set { _url3 = value; } }
-
         private string _url4 = "";
         public string url4 { get { return _url4; } set { _url4 = value; } }
-
-
         private string _modalidad = "";
         public string modalidad { get { return _modalidad; } set { _modalidad = value; } }
-
         private string _edificacion = "";
         public string edificacion { get { return _edificacion; } set { _edificacion = value; } }
-
         private int _habitaciones = 0;
         public int habitaciones { get { return _habitaciones; } set { _habitaciones = value; } }
-
         private string _garaje = "";
         public string garaje { get { return _garaje; } set { _garaje = value; } }
     }
