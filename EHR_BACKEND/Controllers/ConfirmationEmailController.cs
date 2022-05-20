@@ -49,10 +49,9 @@ namespace EasyHouseRent.Controllers
             string secret = this.conf.GetValue<string>("Secret");
             var jwt = new JWT(secret);
             var token = jwt.CreateTokenEmail(db.executeSql(sql));
-            //var token = jwt.CreateTokenEmail(user.email);
-
             return Ok(new { state = true, message = "Token For Created Email", token });
         }
+
         // PUT api/<ConfirmationEmailController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

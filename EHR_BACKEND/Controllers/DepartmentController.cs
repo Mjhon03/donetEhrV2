@@ -31,7 +31,6 @@ namespace EasyHouseRent.Controllers
         [HttpGet("{id}")]
         public void Get(int id)
         {
-
         }
 
         // POST api/<DepartmentController>

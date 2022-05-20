@@ -26,7 +26,7 @@ namespace EasyHouseRent.Controllers
             }
             else
             {
-                string sql = $"SELECT idanuncio,idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4 FROM anuncios a WHERE zona LIKE '%{value}%' OR titulo LIKE '%{value}%' OR direccion LIKE '%{value}%';";
+                string sql = $"SELECT idanuncio,idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4,estado FROM anuncios a WHERE zona LIKE '%{value}%' OR titulo LIKE '%{value}%' OR direccion LIKE '%{value}%';";
                 DataTable dt = db.getTable(sql);
                 List<Anuncios> dataAd = new List<Anuncios>();
                 dataAd = (from DataRow dr in dt.Rows
@@ -47,7 +47,8 @@ namespace EasyHouseRent.Controllers
                               url1 = dr["url1"].ToString(),
                               url2 = dr["url2"].ToString(),
                               url3 = dr["url3"].ToString(),
-                              url4 = dr["url4"].ToString()
+                              url4 = dr["url4"].ToString(),
+                              estado = dr["estado"].ToString()
 
                           }).ToList();
 
@@ -59,7 +60,7 @@ namespace EasyHouseRent.Controllers
         [HttpGet("MostRecent")]
         public IEnumerable<Anuncios> GetMostRecent([FromQuery] string value)
         {
-            string sql = $"SELECT idanuncio,idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4 FROM anuncios ORDER BY idanuncio DESC LIMIT 20;";
+            string sql = $"SELECT idanuncio,idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4,estado FROM anuncios ORDER BY idanuncio DESC LIMIT 20;";
             DataTable dt = db.getTable(sql);
             List<Anuncios> mostRecentList = new List<Anuncios>();
             mostRecentList = (from DataRow dr in dt.Rows
@@ -80,17 +81,18 @@ namespace EasyHouseRent.Controllers
                           url1 = dr["url1"].ToString(),
                           url2 = dr["url2"].ToString(),
                           url3 = dr["url3"].ToString(),
-                          url4 = dr["url4"].ToString()
+                          url4 = dr["url4"].ToString(),
+                          estado = dr["estado"].ToString()
 
                       }).ToList();
 
             return mostRecentList;
         }
 
-        [HttpGet("Categories")]
-        public IEnumerable<Anuncios> GetCategories([FromQuery] string category)
+        [HttpGet("Edification")]
+        public IEnumerable<Anuncios> GetCategories([FromQuery] string edification)
         {
-            string sql = $"SELECT a.* FROM anuncios a WHERE a.edificacion = '{category}' ";
+            string sql = $"SELECT a.* FROM anuncios a WHERE a.edificacion = '{edification}' ";
             DataTable dt = db.getTable(sql);
             List<Anuncios> categoryList = new List<Anuncios>();
             categoryList = (from DataRow dr in dt.Rows
@@ -111,7 +113,8 @@ namespace EasyHouseRent.Controllers
                                   url1 = dr["url1"].ToString(),
                                   url2 = dr["url2"].ToString(),
                                   url3 = dr["url3"].ToString(),
-                                  url4 = dr["url4"].ToString()
+                                  url4 = dr["url4"].ToString(),
+                                  estado = dr["estado"].ToString()
 
                               }).ToList();
 
@@ -137,6 +140,7 @@ namespace EasyHouseRent.Controllers
         {
         }
 
+        //POST api/<HomeController/BusquedaFiltro>/value
         [HttpPost("BusquedaFiltro{id}")]
         public void filterPost([FromBody] string value)
         {

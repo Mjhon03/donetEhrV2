@@ -49,7 +49,6 @@ namespace EasyHouseRent.Controllers
             string secret = this.conf.GetValue<string>("Secrect");
             var jwt = new JWT(secret);
             var token = jwt.CreateTokenEmail(db.executeSql(sql));
-            //return Ok(new { state = true, token });
             return Ok(new { state = true, token = token});
         }
 
@@ -61,7 +60,6 @@ namespace EasyHouseRent.Controllers
             var decode = jwt.descodeToken(token);
             return decode;
         }
-
 
         // PUT api/<PasswordController>/5
         [HttpPut]
