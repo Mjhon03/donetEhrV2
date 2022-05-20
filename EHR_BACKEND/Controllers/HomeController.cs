@@ -26,7 +26,7 @@ namespace EasyHouseRent.Controllers
             }
             else
             {
-                string sql = $"SELECT idanuncio,idusuario,titulo,descripcion,direccion,estado,valor,fecha,zona,calificacion,url1,url2,url3,url4 FROM anuncios a WHERE zona LIKE '%{value}%' OR titulo LIKE '%{value}%' OR direccion LIKE '%{value}%';";
+                string sql = $"SELECT idanuncio,idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4 FROM anuncios a WHERE zona LIKE '%{value}%' OR titulo LIKE '%{value}%' OR direccion LIKE '%{value}%';";
                 DataTable dt = db.getTable(sql);
                 List<Anuncios> dataAd = new List<Anuncios>();
                 dataAd = (from DataRow dr in dt.Rows
@@ -35,12 +35,15 @@ namespace EasyHouseRent.Controllers
                               idanuncio = Convert.ToInt32(dr["idanuncio"]),
                               idusuario = Convert.ToInt32(dr["idusuario"]),
                               titulo = dr["titulo"].ToString(),
-                              descripcion = dr["descripcion"].ToString(),
                               direccion = dr["direccion"].ToString(),
-                              estado = dr["estado"].ToString(),
-                              precio = Convert.ToInt32(dr["precio"]),
-                              fecha = dr["fecha"].ToString(),
+                              descripcion = dr["descripcion"].ToString(),
+                              modalidad = dr["modalidad"].ToString(),
                               zona = dr["zona"].ToString(),
+                              edificacion = dr["edificacion"].ToString(),
+                              habitaciones = Convert.ToInt32(dr["habitaciones"]),
+                              garaje = dr["garaje"].ToString(),
+                              precio = Convert.ToInt64(dr["precio"]),
+                              fecha = dr["fecha"].ToString(),
                               url1 = dr["url1"].ToString(),
                               url2 = dr["url2"].ToString(),
                               url3 = dr["url3"].ToString(),
@@ -56,7 +59,7 @@ namespace EasyHouseRent.Controllers
         [HttpGet("MostRecent")]
         public IEnumerable<Anuncios> GetMostRecent([FromQuery] string value)
         {
-            string sql = $"SELECT idanuncio,idusuario,titulo,descripcion,direccion,estado,valor,fecha,zona,calificacion,url1,url2,url3,url4 FROM anuncios ORDER BY idanuncio DESC LIMIT 20;";
+            string sql = $"SELECT idanuncio,idusuario,titulo,direccion,descripcion,modalidad,zona,edificacion,habitaciones,garaje,precio,fecha,url1,url2,url3,url4 FROM anuncios ORDER BY idanuncio DESC LIMIT 20;";
             DataTable dt = db.getTable(sql);
             List<Anuncios> mostRecentList = new List<Anuncios>();
             mostRecentList = (from DataRow dr in dt.Rows
@@ -65,12 +68,15 @@ namespace EasyHouseRent.Controllers
                           idanuncio = Convert.ToInt32(dr["idanuncio"]),
                           idusuario = Convert.ToInt32(dr["idusuario"]),
                           titulo = dr["titulo"].ToString(),
-                          descripcion = dr["descripcion"].ToString(),
                           direccion = dr["direccion"].ToString(),
-                          estado = dr["estado"].ToString(),
-                          precio = Convert.ToInt32(dr["precio"]),
-                          fecha = dr["fecha"].ToString(),
+                          descripcion = dr["descripcion"].ToString(),
+                          modalidad = dr["modalidad"].ToString(),
                           zona = dr["zona"].ToString(),
+                          edificacion = dr["edificacion"].ToString(),
+                          habitaciones = Convert.ToInt32(dr["habitaciones"]),
+                          garaje = dr["garaje"].ToString(),
+                          precio = Convert.ToInt64(dr["precio"]),
+                          fecha = dr["fecha"].ToString(),
                           url1 = dr["url1"].ToString(),
                           url2 = dr["url2"].ToString(),
                           url3 = dr["url3"].ToString(),
@@ -84,7 +90,7 @@ namespace EasyHouseRent.Controllers
         [HttpGet("Categories")]
         public IEnumerable<Anuncios> GetCategories([FromQuery] string category)
         {
-            string sql = $"SELECT a.* FROM anuncios a INNER JOIN estructura e ON a.tipoEstructura = e.idestructura WHERE e.nombre = '{category}';";
+            string sql = $"SELECT a.* FROM anuncios a WHERE a.edificacion = '{category}' ";
             DataTable dt = db.getTable(sql);
             List<Anuncios> categoryList = new List<Anuncios>();
             categoryList = (from DataRow dr in dt.Rows
@@ -93,12 +99,15 @@ namespace EasyHouseRent.Controllers
                                   idanuncio = Convert.ToInt32(dr["idanuncio"]),
                                   idusuario = Convert.ToInt32(dr["idusuario"]),
                                   titulo = dr["titulo"].ToString(),
-                                  descripcion = dr["descripcion"].ToString(),
                                   direccion = dr["direccion"].ToString(),
-                                  estado = dr["estado"].ToString(),
-                                  precio = Convert.ToInt32(dr["precio"]),
-                                  fecha = dr["fecha"].ToString(),
+                                  descripcion = dr["descripcion"].ToString(),
+                                  modalidad = dr["modalidad"].ToString(),
                                   zona = dr["zona"].ToString(),
+                                  edificacion = dr["edificacion"].ToString(),
+                                  habitaciones = Convert.ToInt32(dr["habitaciones"]),
+                                  garaje = dr["garaje"].ToString(),
+                                  precio = Convert.ToInt64(dr["precio"]),
+                                  fecha = dr["fecha"].ToString(),
                                   url1 = dr["url1"].ToString(),
                                   url2 = dr["url2"].ToString(),
                                   url3 = dr["url3"].ToString(),
@@ -128,10 +137,9 @@ namespace EasyHouseRent.Controllers
         {
         }
 
-        [HttpPost("/busquedaFiltro{id}")]
-        public async Task filtrosPost([FromBody] string value)
+        [HttpPost("BusquedaFiltro{id}")]
+        public void filterPost([FromBody] string value)
         {
-
         }
     }
 }

@@ -47,7 +47,7 @@ namespace EasyHouseRent.Controllers
         [HttpPut("{id}")]
         public string Put([FromBody] Anuncios ad)
         {
-            string sql = "UPDATE anuncios SET titulo = '" + ad.titulo + "', descripcion = '" + ad.descripcion + "', puntuacion = '" + ad.puntuacion + "', direccion ='" + ad.direccion + "', estado ='" + ad.estado + "', tipoEstructura ='" + ad.tipoEstructura + "', valor ='" + ad.precio + "', fecha ='" + ad.fecha + "', certificado ='" + ad.certificado + "'  WHERE idanuncio = '" + ad.idanuncio + "'";
+            string sql = "UPDATE anuncios SET titulo = '" + ad.titulo + "', direccion = '" + ad.direccion + "', descripcion = '" + ad.descripcion + "', direccion ='" + ad.direccion + "', modalidad ='" + ad.modalidad + "', zona ='" + ad.zona + "', edificacion ='" + ad.edificacion + "', habitaciones ='" + ad.habitaciones + "', garaje ='" + ad.garaje + "', precio ='" + ad.precio + "', fecha ='" + ad.fecha + "', url1 ='" + ad.url1 + "', url2 ='" + ad.url2 + "', url3 ='" + ad.url3 + "', url4 ='" + ad.url4 + "'  WHERE idanuncio = '" + ad.idanuncio + "'";
             return db.executeSql(sql);
         }
 
