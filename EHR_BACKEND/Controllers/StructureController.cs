@@ -34,10 +34,20 @@ namespace EHR_BACKEND.Controllers
         }
 
         // GET api/<AdFiltersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("AboutUs")]
+        public IEnumerable<Anuncios> GetImagesAds([FromQuery] string value)
         {
-            return "value";
+            string sql = $"SELECT url1 FROM anuncios LIMIT 5;";
+            DataTable dt = db.getTable(sql);
+            List<Anuncios> listImagesAds = new List<Anuncios>();
+            listImagesAds = (from DataRow dr in dt.Rows
+                             select new Anuncios()
+                             {
+                                 url1 = dr["url1"].ToString(),
+
+                             }).ToList();
+
+            return listImagesAds;
         }
 
         // POST api/<AdFiltersController>
