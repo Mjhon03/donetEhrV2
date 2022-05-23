@@ -406,3 +406,4 @@ C:\Users\Juan\Desktop\Dev\donetEhrV2\EHR_BACKEND\obj\Debug\net5.0\EHR_BACKEND.dl
 C:\Users\Juan\Desktop\Dev\donetEhrV2\EHR_BACKEND\obj\Debug\net5.0\ref\EHR_BACKEND.dll
 C:\Users\Juan\Desktop\Dev\donetEhrV2\EHR_BACKEND\obj\Debug\net5.0\EHR_BACKEND.pdb
 C:\Users\Juan\Desktop\Dev\donetEhrV2\EHR_BACKEND\obj\Debug\net5.0\EHR_BACKEND.genruntimeconfig.cache
+C:\Users\adsi\Desktop\EHR BACK\donetEhrV2\EHR_BACKEND\bin\Debug\net5.0\EHR_BACKEND.StaticWebAssets.xml

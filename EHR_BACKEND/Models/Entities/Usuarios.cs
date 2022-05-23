@@ -28,9 +28,9 @@ namespace EasyHouseRent.Model.Entities
 
         public string email { set { _email = value; } get { return _email; } }
 
-        private string _contraseña;
+        private string _contrasenna;
 
-        public string contraseña { set { _contraseña = Encrypt.GetSHA256(value); } get { return _contraseña; } }
+        public string contrasenna { set { _contrasenna = Encrypt.GetSHA256(value); } get { return _contrasenna; } }
 
         private string _apellidos;
         public string apellidos { set { _apellidos = value; } get { return _apellidos; } }
