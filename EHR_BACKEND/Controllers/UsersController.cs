@@ -46,6 +46,13 @@ namespace EasyHouseRent.Controllers
             return db.executeSql(sql); 
         }
 
+        [HttpPut("ProfilePicture")]
+        public string PutProfilePicture([FromBody] Usuarios user)
+        {
+            string sql = $"UPDATE usuarios SET foto = '{user.foto}' WHERE idusuario = {user.idusuario}";
+            return db.executeSql(sql);
+        }
+
         // DELETE api/<UsersController>/5
         [HttpDelete]
         public string Delete([FromBody] Usuarios user)
