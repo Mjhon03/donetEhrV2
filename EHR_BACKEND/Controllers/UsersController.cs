@@ -46,7 +46,7 @@ namespace EasyHouseRent.Controllers
             return db.executeSql(sql); 
         }
 
-        [HttpPut("ProfilePicture")]
+        [HttpPost("ProfilePicture")]
         public string PutProfilePicture([FromBody] Usuarios user)
         {
             string sql = $"UPDATE usuarios SET foto = '{user.foto}' WHERE idusuario = {user.idusuario}";
